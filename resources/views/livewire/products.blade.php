@@ -21,7 +21,7 @@
         <thead>
         <tr>
             <th>No.</th>
-            <th>Product Name</th>
+            <th>Product Name </th>
             <th>Desc</th>
             <th>Action</th>
         </tr>
@@ -41,5 +41,7 @@
         </tbody>
     </table>
 {{--    {{ $products->links() }}--}}
-    {{ $products->links('livewire.livewire-pagination') }}
+    {{ $products->links('livewire.livewire-pagination',['search' => $search]) }}
+{{--    {{ $products->links('pagination::tailwind') }}--}}
+{{--    {{ $products->links('pagination::custom') }}--}}
 </div>

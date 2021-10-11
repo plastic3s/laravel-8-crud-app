@@ -18,17 +18,18 @@ class Products extends Component
     public $searchTerm;
     public $currentPage = 1;
 
-    protected $paginationTheme = 'bootstrap';
+//    protected $paginationTheme = 'bootstrap';
 
     public function render()
     {
-        $query = '%'.$this->searchTerm.'%';
+//        $query = '%'.$this->searchTerm.'%';
 
         return view('livewire.products',[
                 'products' => Product::where(function($sub_query){
                     $sub_query->where('name', 'like', '%'.$this->searchTerm.'%')
                         ->orWhere('desc', 'like', '%'.$this->searchTerm.'%');
-                })->paginate(5)
+                })->paginate(5),
+                'search' => $this->searchTerm
         ]);
     }
 
